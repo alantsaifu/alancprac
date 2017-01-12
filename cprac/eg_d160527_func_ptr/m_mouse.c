@@ -1,19 +1,4 @@
- /* Copyright (c) 2012 Nordic Semiconductor. All Rights Reserved.
- *
- * The information contained herein is property of Nordic Semiconductor ASA.
- * Terms and conditions of usage are described in detail in NORDIC
- * SEMICONDUCTOR STANDARD SOFTWARE LICENSE AGREEMENT.
- *
- * Licensees are granted free, non-transferable use of the information. NO
- * WARRANTY of ANY KIND is provided. This heading must NOT be removed from
- * the file.
- *
- * $LastChangedRevision$
- */
- 
 #include "m_mouse.h"
-
-
 
 static app_sched_event_handler_t s_event_handler        = 0;
 
@@ -27,14 +12,10 @@ static bool                      s_mouse_initialized = false;
 static uint8_t 					 s_connected_ctrl;
 #endif
 
-//&*&*&*G1093015_ADD
+
 static protocol_mode_t 	s_switch_protocol = protocol_mode_gzll;
 
-
-//&*&*&*G2093015_ADD
-//&*&*&*G1110615_ADD
 extern bool               ext_coms_bonding;
-//&*&*&*G1110615_ADD
 
 #ifdef HOSTPRENT
 extern bool               gzp_addr_req_clr;

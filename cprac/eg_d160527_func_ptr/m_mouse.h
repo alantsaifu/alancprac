@@ -1,16 +1,3 @@
-/* Copyright (c) 2012 Nordic Semiconductor. All Rights Reserved.
- *
- * The information contained herein is property of Nordic Semiconductor ASA.
- * Terms and conditions of usage are described in detail in NORDIC
- * SEMICONDUCTOR STANDARD SOFTWARE LICENSE AGREEMENT.
- *
- * Licensees are granted free, non-transferable use of the information. NO
- * WARRANTY of ANY KIND is provided. This heading must NOT be removed from
- * the file.
- *
- * $LastChangedRevision$
- */
-
 /** @file 
  *
  * @defgroup modules_mouse
@@ -28,7 +15,6 @@
 #define M_MOUSE_SENSOR_POLLRATE 7 // [ms]
 #define M_MOUSE_BTN_POLLRATE   15 // [ms]
 
-//&*&*&*G1_ADD, RELEASE, DTM, FTM, DEBUG support
 #ifndef DEBUG_PRINT
 	#define DTM_SUPPORT
 #endif
@@ -36,9 +22,9 @@
 #include <stdint.h>
 
 #include "app_scheduler.h"
-//&*&*&*G1092715_ADD
+
 #include "m_coms.h"
-//&*&*&*G1092715_ADD
+
 
 typedef enum {
     mouse_packet_type_motion,
@@ -101,10 +87,9 @@ bool m_mouse_is_pairing_btn_pressed(void);
  */
 bool m_mouse_wakeup_prepare(bool wakeup);
 
-//&*&*&*G1092715_ADD
 void radio_switch_init(void);
 protocol_mode_t get_radio_switch_state(void);
-//&*&*&*G2092715_ADD
+
 
 #endif /* __M_MOUSE_H__ */
 

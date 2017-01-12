@@ -1,16 +1,3 @@
-/* Copyright (c) 2012 Nordic Semiconductor. All Rights Reserved.
- *
- * The information contained herein is property of Nordic Semiconductor ASA.
- * Terms and conditions of usage are described in detail in NORDIC
- * SEMICONDUCTOR STANDARD SOFTWARE LICENSE AGREEMENT.
- *
- * Licensees are granted free, non-transferable use of the information. NO
- * WARRANTY of ANY KIND is provided. This heading must NOT be removed from
- * the file.
- *
- * $LastChangedRevision$
- */
- 
 #include "m_coms.h"
 
 #include <string.h>
@@ -29,9 +16,8 @@ static protocol_mode_t        m_coms_protocol_scheme; /** Which protocol(s) to u
 static protocol_mode_t        m_coms_protocol_used;   /** Currently used protocol. */
 static uint32_t               m_coms_timeouts;        /** How many advertising timeouts has occured. Used in protocol_mode_auto. */
 
-//&*&*&*G1110615_ADD, to share to m_mouse.c
 				bool              ext_coms_bonding = false;
-//&*&*&*G2110615_ADD, to share to m_mouse.c
+
 static protocol_mode_t        m_coms_protocol_switch_pending = protocol_mode_void;
 app_sched_event_handler_t     m_coms_event_callback;  /** Event handler used to notify application of events. */
 

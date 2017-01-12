@@ -1,11 +1,6 @@
 #include "m_coms_ble.h"
-
 #include "app_scheduler.h"
-
 #include <stdio.h>
-
-
-                  
 
 static app_sched_event_handler_t     s_event_callback = 0; /** Event callback used to notify m_coms */
 
@@ -17,9 +12,6 @@ static bool                          s_sec_params_requested; /** Auth key reques
 static bool                          s_boot_mode_active;   /** In Boot or Report mode? */
 
 static uint16_t                      s_conn_handle;        /** Handle value of current connection */
-
-
-
 
 #define WAITING_REASON_INIT                     (1UL << 0)
 #define WAITING_REASON_INIT_BONDS_DELETE        (1UL << 1)
