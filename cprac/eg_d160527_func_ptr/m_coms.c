@@ -30,8 +30,12 @@ static void m_coms_bonding_handler(void * p_event_data, uint16_t event_size);
 
 static void m_coms_bonding_handler(void * p_event_data, uint16_t event_size)
 {
-    printf("[m_coms_bonding_handler\r\n");
-    m_coms_event_callback(0,0);
+	m_mouse_data_t data;
+	data.type = mouse_packet_type_pairing_button;
+
+    printf("[debug] m_coms_bonding_handler\r\n");
+	m_coms_event_callback(&data, sizeof(m_mouse_data_t));
+	//s_event_handler(&data, sizeof(m_mouse_data_t));
     
     return;
 }

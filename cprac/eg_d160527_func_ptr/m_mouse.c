@@ -21,12 +21,21 @@ extern bool               ext_coms_bonding;
 extern bool               gzp_addr_req_clr;
 #endif
 
+static void button_handler(void){
+	m_mouse_data_t data;
+	data.type = mouse_packet_type_buttons;
+
+	s_event_handler(&data, sizeof(m_mouse_data_t));
+}
 
 uint32_t m_mouse_init(m_mouse_init_t *init)
 {
     s_sensor_pollrate = init->sensor_pollrate;
     s_button_pollrate = init->button_pollrate;
     s_event_handler   = init->event_handler;
+
+	button_handler();
        
     return 0;
 }
+

@@ -45,6 +45,30 @@ static void m_batt_meas_handler(void * p_event_data, uint16_t event_size);
 static void m_coms_handler(void * p_event_data, uint16_t event_size);
 static void m_mouse_handler(void * p_event_data, uint16_t event_size);
 
+#define APP_ERROR_HANDLER(ERR_CODE)                         \
+    do                                                      \
+    {                                                       \
+        app_error_handler((ERR_CODE), 0, 0);  \
+    } while (0)
+
+void app_error_handler(uint32_t error_code, uint32_t line_num, const uint8_t * p_file_name){
+    for (;;)
+    {
+        // Loop forever. On assert, the system can only recover on reset.
+    }
+}
+	
+#define APP_ERROR_CHECK_BOOL(BOOLEAN_VALUE)                   \
+    do                                                        \
+    {                                                         \
+        const uint32_t LOCAL_BOOLEAN_VALUE = (BOOLEAN_VALUE); \
+        if (!LOCAL_BOOLEAN_VALUE)                             \
+        {                                                     \
+            APP_ERROR_HANDLER(0);                             \
+        }                                                     \
+    } while (0)  
+
+	
 
 static void modules_enable(void)
 {
@@ -81,7 +105,13 @@ static void modules_init(void)
 }
 
 static void m_mouse_handler(void * p_event_data, uint16_t event_size){
-    
+
+	m_mouse_data_t	 *mouse_data;
+
+	APP_ERROR_CHECK_BOOL(event_size == sizeof(m_mouse_data_t));
+
+	mouse_data = (m_mouse_data_t *)p_event_data;
+	printf("[Debug] mouse_data.type = %d\r\n", mouse_data->type);
     return;
 }
 
